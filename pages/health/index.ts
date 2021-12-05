@@ -5,3 +5,8 @@ export const getServerSideProps:GetServerSideProps = async context => {
       props: {},
     }
   } 
+
+  const Health = () => {}
+
+  export default Health
+  
