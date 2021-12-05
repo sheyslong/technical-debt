@@ -1,3 +1,4 @@
+import { LoginForm } from "../../src/authentication/LoginForm"
 import { useRepositoriesByUser } from "../../src/github/hooks/useRepositoriesByUser"
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
   
   return (
     <>
+      <LoginForm/>
       {isLoading ? <span>Loading...</span>: (
         <div>
       <h1>Repositórios:</h1>
