@@ -6,18 +6,23 @@ const api = wretch()
     .headers({'Accept': 'application/vnd.github.v3+json'})
 
 
-function getRepositoriesByUser(userNickName: string) {
-    const response = api
-        .url(`/users/${userNickName}/repos`)
+function getRepositoriesByUser(userName: string) {
+    return api
+        .url(`/users/${userName}/repos`)
         .get()
         .fetchError(error => console.log(error))
         .json<Repository[]>()
-    console.log(response);
-    return response
-    
-    
+}
+
+function getRepositoriesByOrganization(orgName: string) {
+    return api
+        .url(`/orgs/${orgName}/repos`)
+        .get()
+        .fetchError(error => console.log(error))
+        .json<Repository[]>()
 }
 
 export const githubApi = {
-    getRepositoriesByUser
+    getRepositoriesByUser,
+    getRepositoriesByOrganization
 }
