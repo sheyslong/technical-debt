@@ -1,11 +1,13 @@
 import { useQuery } from "react-query"
 import { githubApi } from "../api/githubApi"
+import { useGithubUserName } from "./useGithubUserName"
 
 export const useRepositories = () => {
-    const isWindowIsNotUndefined = typeof window !== 'undefined'
-    const userName = isWindowIsNotUndefined ? window.sessionStorage.getItem('githubUser') : undefined
+    const githubUserName = useGithubUserName()
     const { data, isError, error, isLoading } = useQuery(
-        ['repositories', userName], () => githubApi.getRepositoriesByUser(userName))
+        ['repositories', githubUserName], () => githubApi.getRepositoriesByUser(githubUserName), {
+            enabled: !!githubUserName
+        })
     
-    return {repositories: userName ? data : [], isLoading, isError, error}
+    return {repositories: githubUserName ? data : [], isLoading, isError, error}
 }
