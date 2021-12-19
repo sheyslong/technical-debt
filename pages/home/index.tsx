@@ -1,11 +1,10 @@
-import { LoginForm } from "../../src/authentication/LoginForm"
-import Repositories from "../../src/features/components/Repositories"
+import GithubRepositories from "../../src/github/components/GithubRepositories"
 
 const Home = () => {
   
   return (
     <>
-      <Repositories />
+      <GithubRepositories />
       </>
     
   )

@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Card, CardContent, CardActionArea, Typography, Grid } from '@mui/material';
-import { useRepositories } from "../../github/hooks/useRepositories";
-import { Repository } from "../../github/typings/RepositoryTyping";
+import { useRepositories } from "../hooks/useRepositories";
+import { Repository } from "../typings/RepositoryTyping";
 
-export const Repositories: FC = () => {
+const GithubRepositories: FC = () => {
     const {repositories, isLoading} = useRepositories()
     
     if(isLoading) return <h1>Loading...</h1>
@@ -43,4 +43,4 @@ const RepositoryDetails: FC<RepositoryDetailsProps> = (
 </Card>
 }
 
-export default Repositories
+export default GithubRepositories
