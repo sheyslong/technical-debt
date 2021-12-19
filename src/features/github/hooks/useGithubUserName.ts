@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
+import { fetchGithubUserFromSessionStorage } from "../utils/fetchGithubUserFromSessionStorage"
 
 export const useGithubUserName = () => {
-    const isWindowIsNotUndefined = typeof window !== 'undefined'
-    const githubUser = isWindowIsNotUndefined ? window.sessionStorage.getItem('githubUser') : undefined
+    const githubUser = fetchGithubUserFromSessionStorage()
     const [githubUserName, setGithubUserName] = useState(githubUser)
 
     useEffect(() => {setGithubUserName(githubUser)}, [githubUser])
     return githubUserName
 }
+
