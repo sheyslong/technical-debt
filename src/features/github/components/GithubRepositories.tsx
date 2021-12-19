@@ -3,6 +3,7 @@ import { Card, CardContent, CardActionArea, Typography, Grid } from '@mui/materi
 import { useRepositories } from "../hooks/useRepositories";
 import { Repository } from "../typings/RepositoryTyping";
 import { Loading } from "./Loading";
+import { useRouter } from "next/router";
 
 const GithubRepositories: FC = () => {
     const {repositories, isLoading} = useRepositories()
@@ -25,6 +26,10 @@ interface RepositoryDetailsProps {
 const RepositoryDetails: FC<RepositoryDetailsProps> = (
     {repository}
 ) => {
+    const router = useRouter()
+    const openRepositoryProfile = (repositoryId: number) => {
+      router.push(`/repositories/${repositoryId}`)
+    }
     return <Card sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -36,7 +41,7 @@ const RepositoryDetails: FC<RepositoryDetailsProps> = (
         color: '#fff'
     }}>
     <CardActionArea>
-   <CardContent>
+   <CardContent onClick={() => openRepositoryProfile(repository.id)}>
      <Typography gutterBottom variant="h5" component="div">
        {repository.name}
      </Typography>
