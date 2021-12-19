@@ -1,12 +1,9 @@
-import GithubRepositories from "../../src/github/components/GithubRepositories"
+import GithubRepositories from "../../src/features/github/components/GithubRepositories"
 
 const Home = () => {
   
   return (
-    <>
       <GithubRepositories />
-      </>
-    
   )
 }
 

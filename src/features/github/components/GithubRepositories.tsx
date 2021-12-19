@@ -2,11 +2,13 @@ import { FC } from "react";
 import { Card, CardContent, CardActionArea, Typography, Grid } from '@mui/material';
 import { useRepositories } from "../hooks/useRepositories";
 import { Repository } from "../typings/RepositoryTyping";
+import { Loading } from "./Loading";
 
 const GithubRepositories: FC = () => {
     const {repositories, isLoading} = useRepositories()
     
-    if(isLoading) return <h1>Loading...</h1>
+    if(isLoading) return <Loading/>
+
     return <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {repositories.map((repository: Repository) => 
         <Grid item xs={2} sm={4} md={4} key={repository.id}>
@@ -28,7 +30,10 @@ const RepositoryDetails: FC<RepositoryDetailsProps> = (
         flexDirection: 'column',
         maxWidth: '350px',
         height: '250px',
-        padding: '8px'
+        padding: '8px',
+        justifyContent: 'center',
+        background: '#DB324D',
+        color: '#fff'
     }}>
     <CardActionArea>
    <CardContent>

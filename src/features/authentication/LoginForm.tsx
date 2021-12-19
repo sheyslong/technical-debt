@@ -31,7 +31,9 @@ export const LoginForm:FC = () => {
             alignItems: 'center',
             justifyContent: 'center',
             height: '50vh',
-            background: '#e9f1ed'
+            background: '#e9f1ed',
+            rowGap: '16px',
+            background: '#DB324D'
         }}>
         <Controller
             name='githubCredential'
@@ -48,6 +50,10 @@ export const LoginForm:FC = () => {
                   onChange={e => onChange(e.target.value)}
                   onBlur={onBlur}
                   label='Github username'
+                  sx={{
+                    background: '#ffffffe0',
+                    borderRadius: '4px'
+                  }}
                 />
                 <FormHelperText >{error?.message}</FormHelperText>
               </FormControl>
