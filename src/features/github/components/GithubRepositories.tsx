@@ -27,8 +27,8 @@ const RepositoryDetails: FC<RepositoryDetailsProps> = (
     {repository}
 ) => {
     const router = useRouter()
-    const openRepositoryProfile = (repositoryId: number) => {
-      router.push(`/repositories/${repositoryId}`)
+    const openRepositoryProfile = (repositoryName: string) => {
+      router.push(`/repositories/${repositoryName}`)
     }
     return <Card sx={{
         display: 'flex',
@@ -41,7 +41,7 @@ const RepositoryDetails: FC<RepositoryDetailsProps> = (
         color: '#fff'
     }}>
     <CardActionArea>
-   <CardContent onClick={() => openRepositoryProfile(repository.id)}>
+   <CardContent onClick={() => openRepositoryProfile(repository.name)}>
      <Typography gutterBottom variant="h5" component="div">
        {repository.name}
      </Typography>

@@ -1,11 +1,13 @@
+import { Box } from "@mui/system";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
 const GithubRepositoryProfile: FC = () =>{
     const router = useRouter()
-    const {repositoryId} = router.query
+    const {repositoryName} = router.query
     
-    return <h1>My Repository Profile: {repositoryId}</h1>
+    return <Box sx={{
+        background: 'white',    }}>My Repository Profile: {repositoryName}</Box>
 }
 
 export default GithubRepositoryProfile
